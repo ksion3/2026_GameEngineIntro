@@ -1,0 +1,39 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class TitleButton : MonoBehaviour
+{
+    public void ButtonLog()
+    {
+        Debug.Log("BUTTON CLICKED!");
+    }
+    public GameObject helpPanel;
+
+    public void GameStart()
+    {
+        SceneManager.LoadScene("PlayerScene_Door1");
+    }
+    public void OpenHelp()
+    {
+        helpPanel.SetActive(true);
+    }
+    public void CloseHelp()
+    {
+        helpPanel.SetActive(false);
+    }
+    public void GameTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

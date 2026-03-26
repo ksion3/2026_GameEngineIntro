@@ -1,6 +1,7 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class 좌우이동 : MonoBehaviour
 {
@@ -51,5 +52,16 @@ public class 좌우이동 : MonoBehaviour
             myAnimator.SetBool("move", false);
         }
         transform.Translate(Vector3.right * moveSpeed * moveInput.x * Time.deltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Death")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else
+        {
+            SceneManager.LoadScene("PlayerScene_" + collision.name);
+        }
     }
 }
